@@ -515,7 +515,9 @@
     const destX = 19, destY = 19;
     const mark = (x, y) => node(x, y).style.backgroundColor = 'black';
     const printPath = (route) => {
-        const {x, y} = route.shift();
+        const point = route.shift();
+        if (!point) return;
+        const {x, y} = point;
         mark(x, y);
         setTimeout(() => printPath(route), 100);
     }
